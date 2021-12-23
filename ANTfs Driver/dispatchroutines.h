@@ -1,9 +1,7 @@
 #pragma once
-
 #include <ntifs.h>
 #include "typesndefs.h"
 
-_Success_(return >= 0)
 /// <summary>
 /// This locates the lower device of NTFS and directly
 /// overwrites the contents of a file with zeroes, as 
@@ -13,6 +11,7 @@ _Success_(return >= 0)
 /// <param name="WipeInputBuffer"></param>
 /// <returns>Returns STATUS_SUCCESS or the 
 /// appropriate status code.</returns>
+_Success_(return >= 0)
 NTSTATUS 
 OverwriteFileRecord(
 	_In_ PWIPE_INPUT_BUFFER WipeInputBuffer

@@ -9,7 +9,10 @@
 #include "privileges.h"
 #include "antiforensics.h"
 
-bool GenerateOutputPath(std::wstring& Output)
+bool 
+GenerateOutputPath(
+    _Inout_ std::wstring& Output
+)
 {
     std::wstringstream ss;
     Output.resize(MAX_PATH * 2, '\0');
