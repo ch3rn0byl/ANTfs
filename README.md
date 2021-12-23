@@ -12,6 +12,8 @@ Also, this is just a PoC. A blogpost will follow when finished.
 The SDK and the WDK are needed to be able to compile this on your own if you choose to modify this. This was compiled using Visual Studio 2019. 
 
 ### How to use?
+![alt text](https://github.com/ch3rn0byl/ANTfs/blob/master/Images/helpmenu.png)
+
 If you are wanting to recover deleted files from the system: 
 ```
 ANTfs.exe --drive c --recover --outfile
