@@ -2,7 +2,7 @@
 #include <ntddk.h>
 
 ///---------------------------------------------------------------
-/// Macro(s)
+// Macro(s)
 ///---------------------------------------------------------------
 #define ENCODE_IOCTL(DeviceType, Function)( \
 	((DeviceType) << 16 |					\
@@ -12,13 +12,13 @@
 )
 
 ///---------------------------------------------------------------
-/// Definitions
+// Definitions
 ///---------------------------------------------------------------
 constexpr auto POOLTAG = 'nRhC';
 constexpr auto MAX_LEN = 260 * 2;
 
 ///---------------------------------------------------------------
-/// Enum types
+// Enum types
 ///---------------------------------------------------------------
 typedef enum
 {
@@ -26,7 +26,7 @@ typedef enum
 } IOCTLS;
 
 ///---------------------------------------------------------------
-/// Struct Types
+// Struct Types
 ///---------------------------------------------------------------
 #include <pshpack1.h>
 typedef struct _WIPE_INPUT_BUFFER
@@ -40,4 +40,4 @@ typedef struct _WIPE_INPUT_BUFFER
 #include <poppack.h>
 
 
-/// EOF
+// EOF

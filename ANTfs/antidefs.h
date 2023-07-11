@@ -1,31 +1,15 @@
 #pragma once
 #include <winnt.h>
 
-///---------------------------------------------------------------
-// Macro(s)
-///---------------------------------------------------------------
-#define ENCODE_IOCTL(DeviceType, Function)( \
-	((DeviceType) << 16 |					\
-	((FILE_WRITE_DATA) << 14) |				\
-	((Function) << 2) |						\
-	(METHOD_BUFFERED))						\
-)
-
-///---------------------------------------------------------------
+//---------------------------------------------------------------
 // Definitions
-///---------------------------------------------------------------
-constexpr auto ANTFS_DRIVER_NAME = L"\\\\.\\ANTfs";
+//---------------------------------------------------------------
 constexpr auto FILE_SIGNATURE = 'ELIF';
 constexpr auto NTFS_BOOT_SECTOR_SIGNATURE = 0xaa55;
 
-///---------------------------------------------------------------
+//---------------------------------------------------------------
 // Enum types
-///---------------------------------------------------------------
-typedef enum
-{
-	IoctlOverwrite = ENCODE_IOCTL(FILE_DEVICE_UNKNOWN, 0x900)
-} IOCTLS; 
-
+//---------------------------------------------------------------
 typedef enum
 {
 	NamespacePosix,
@@ -71,9 +55,9 @@ typedef enum
 	$Extend
 } SPECIAL_FILE_TYPE, * PSPECIAL_FILE_TYPE;
 
-///---------------------------------------------------------------
+//---------------------------------------------------------------
 // Struct Types
-///---------------------------------------------------------------
+//---------------------------------------------------------------
 #include <pshpack1.h>
 typedef struct _BOOT_SECTOR
 {
@@ -101,11 +85,6 @@ typedef struct _BOOT_SECTOR
 	UINT16 Signature;
 } BOOT_SECTOR, * PBOOT_SECTOR;
 
-///
-// Using nameless structs so disabling the warnings that prevent the driver from 
-// being compiled. 
-// 
-#pragma warning(disable : 4201)
 typedef struct _FILE_RECORD
 {
 	UINT32 Signature;						// The type of NTFS record (FILE, INDX, BAAD, etc.)
@@ -275,4 +254,4 @@ typedef struct _WIPE_INPUT_BUFFER
 #include <poppack.h>
 
 
-// EOF
+/// EOF

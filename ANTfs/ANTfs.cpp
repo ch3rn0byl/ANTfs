@@ -1,4 +1,4 @@
-﻿/// ANTfs.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// ANTfs.cpp : This file contains the 'main' function. Program execution begins and ends there.
 ///
 
 #include <Windows.h>
@@ -6,9 +6,10 @@
 #include <iostream>
 #include <ctime>
 
-#include "privileges.h"
+//#include "privileges.h"
 #include "antiforensics.h"
 
+/*
 bool 
 GenerateOutputPath(
     _Inout_ std::wstring& Output
@@ -37,6 +38,7 @@ GenerateOutputPath(
 
     return true;
 }
+*/
 
 void Usage(
     _In_ wchar_t* argv
@@ -66,6 +68,21 @@ int wmain(
     wchar_t* argv[]
 )
 {
+    std::unique_ptr<AntiForensics> Antiforensics = nullptr;
+
+    try
+    {
+        Antiforensics = std::make_unique<AntiForensics>(L"\\\\.\\C:");
+    }
+    catch (const std::exception& e)
+    {
+        std::wcerr << "[!] " << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    std::wcout << "[+] Finished." << std::endl;
+
+    /*
     bool bRecover = false;
     bool bWipe = false;
 
@@ -77,6 +94,19 @@ int wmain(
 
     std::unique_ptr<antiforensics> Antiforensics;
 
+    std::wcout << "             ___      _____________   __       " << std::endl;
+    std::wcout << "             `MM\\     `M'MMMMMMMMMM  69MM      " << std::endl;
+    std::wcout << "              MMM\\     M /   MM   \\ 6M' `      " << std::endl;
+    std::wcout << "              M\\MM\\    M     MM    _MM______   " << std::endl;
+    std::wcout << "              M \\MM\\   M     MM    MMMM6MMMMb\\ " << std::endl;
+    std::wcout << "              M  \\MM\\  M     MM     MMMM'    ` " << std::endl;
+    std::wcout << "              M   \\MM\\ M     MM     MMYM.      " << std::endl;
+    std::wcout << "              M    \\MM\\M     MM     MM YMMMMb  " << std::endl;
+    std::wcout << "              MMMMMM\\MMM     MM     MM     `Mb " << std::endl;
+    std::wcout << "              M      \\MM     MM     MML    ,MM " << std::endl;
+    std::wcout << "             _M_      \\M    _MM_   _MMMYMMMM9  \n" << std::endl;
+    std::wcout << std::endl;
+    std::wcout << std::endl;
     std::wcout << "       _     ___      _____________   __       " << std::endl;
     std::wcout << "      dM.    `MM\\     `M'MMMMMMMMMM  69MM      " << std::endl;
     std::wcout << "     ,MMb     MMM\\     M /   MM   \\ 6M' `      " << std::endl;
@@ -85,7 +115,7 @@ int wmain(
     std::wcout << "    d'  YM.   M  \\MM\\  M     MM     MMMM'    ` " << std::endl;
     std::wcout << "   ,P   `Mb   M   \\MM\\ M     MM     MMYM.      " << std::endl;
     std::wcout << "   d'    YM.  M    \\MM\\M     MM     MM YMMMMb  " << std::endl;
-    std::wcout << "  ,MMMMMMMMb  M     \\MMM     MM     MM     `Mb " << std::endl;
+    std::wcout << "  ,MMMMMMMMb  MMMMMM\\MMM     MM     MM     `Mb " << std::endl;
     std::wcout << "  d'      YM. M      \\MM     MM     MML    ,MM " << std::endl;
     std::wcout << "_dM_     _dMM_M_      \\M    _MM_   _MMMYMMMM9  \n" << std::endl;
 
@@ -108,16 +138,16 @@ int wmain(
             DriveLetter = argv[i + 1];
 
             ///
-            /// Check to see if theres a colon for the drive. If not, add it.
-            /// 
+            // Check to see if theres a colon for the drive. If not, add it.
+            // 
             if (DriveLetter.find(L":") == std::string::npos)
             {
                 DriveLetter.insert(DriveLetter.size(), L":");
             }
 
             ///
-            /// Now convert it to the format needed for CreateFile.
-            /// 
+            // Now convert it to the format needed for CreateFile.
+            // 
             DriveLetter.insert(0, L"\\\\.\\");
         }
         else if (wcscmp(argv[i], L"-r") == 0 || wcscmp(argv[i], L"--recover") == 0)
@@ -132,9 +162,9 @@ int wmain(
                         Storage = argv[i + 2];
 
                         ///
-                        /// Check to see if the path ends with a back slash. If not,
-                        /// add it.
-                        /// 
+                        // Check to see if the path ends with a back slash. If not,
+                        // add it.
+                        // 
                         if (reinterpret_cast<const wchar_t*>(Storage.back()) != L"\\")
                         {
                             Storage.insert(Storage.size(), L"\\");
@@ -213,8 +243,8 @@ int wmain(
     if (bWipe && !FileRecord.empty())
     {
         ///
-        /// Strip the formatting of the drive so it can get processed within the kernel.
-        /// 
+        // Strip the formatting of the drive so it can get processed within the kernel.
+        // 
         size_t pos = DriveLetter.find(L"\\\\.\\");
         if (pos != std::wstring::npos)
         {
@@ -236,9 +266,10 @@ int wmain(
 
         std::wcout << "[+] Finished." << std::endl;
     }
+    */
 
     return EXIT_SUCCESS;
 }
 
 
-/// EOF
+// EOF

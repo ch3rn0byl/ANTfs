@@ -16,38 +16,41 @@
     <Filter Include="Header Files\classes">
       <UniqueIdentifier>{459ff526-adf6-42ff-a020-806a05fb54f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\namespaces">
-      <UniqueIdentifier>{b79e7fe5-72e1-4280-89c1-5ebde958948a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\types">
       <UniqueIdentifier>{be1afe1f-dd4a-4c22-a343-22e4684d4c2f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\classes">
       <UniqueIdentifier>{1410e274-ca8f-401e-91f0-a01c16742fa7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\namespaces">
-      <UniqueIdentifier>{a2be1ccd-3d55-458a-99bf-9d9b7426e109}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ANTfs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="antiforensics.cpp">
-      <Filter>Source Files\classes</Filter>
-    </ClCompile>
     <ClCompile Include="privileges.cpp">
-      <Filter>Source Files\namespaces</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="antiforensics.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="antiforensics.h">
-      <Filter>Header Files\classes</Filter>
+    <ClInclude Include="typesndefs.h">
+      <Filter>Header Files\types</Filter>
     </ClInclude>
     <ClInclude Include="privileges.h">
-      <Filter>Header Files\namespaces</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="typesndefs.h">
+    <ClInclude Include="ErrorHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="antiforensics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="antidefs.h">
       <Filter>Header Files\types</Filter>
     </ClInclude>
   </ItemGroup>

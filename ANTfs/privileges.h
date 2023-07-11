@@ -1,15 +1,20 @@
 #pragma once
 #include <Windows.h>
+#include <exception>
+#include "ErrorHandler.h"
 
-namespace privileges
+class Privileges
 {
-	/// <summary>
-	/// Checks to see if the callee is running with 
-	/// Administrator privileges. 
-	/// </summary>
-	/// <returns>Returns true if successful.</returns>
-	bool checkAdminPrivileges();
-}
+public:
+	Privileges();
+	~Privileges();
+
+	BOOL IsRunningAsAdmin();
+
+private:
+	std::unique_ptr<ErrorHandler> m_ErrorHandler;
+	HANDLE m_hToken;
+};
 
 
-/// EOF
+// EOF
